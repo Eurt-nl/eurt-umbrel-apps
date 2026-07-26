@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: eurt-hello-world
+name: Hello World
+tagline: Replace this tagline with your app's tagline
+icon: https://svgur.com/i/mvA.svg
+category: Development
+version: "1.0.0"
+port: 4000
+description: >-
+  Add your app's description here.
+
+
+  You can also add newlines!
+
+developer: Eurt
+website: https://github.com/Eurt-nl
+submitter: Eurt
+submission: https://github.com/Eurt-nl/eurt-umbrel-apps
+repo: https://github.com/Eurt-nl/eurt-umbrel-apps
+support: https://github.com/Eurt-nl/eurt-umbrel-apps/issues
+gallery:
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+releaseNotes: >-
+  Add what's new in the latest version of your app here.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
