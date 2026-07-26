@@ -6,6 +6,7 @@ services:
     environment:
       APP_HOST: eurt-surmai_server_1
       APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
 
   server:
     image: ghcr.io/rohitkumbhar/surmai:v0.5.3@sha256:5220ee5a1f11ddda1b3f614ed0a757a2feccf9672854c2c1698c01cf99a3a10c
