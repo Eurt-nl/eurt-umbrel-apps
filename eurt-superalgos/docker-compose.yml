@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+
+  app_proxy:
+    environment:
+      APP_HOST: eurt-superalgos_server_1
+      APP_PORT: 34248
+
+  server:
+    image: ghcr.io/superalgos/superalgos:9f0fb59edd4bae7afa08d06c366e0bcb48103aec@sha256:e9b022f85a4f1f536bebe1a7e3028384d89148b7a465b7e848b8f8ffa02b3b4f
+    user: "1000:1000"
+    command: ["minMemo"]
+    restart: on-failure
+    # The Superalgos web UI opens a direct browser-to-server WebSocket connection
+    # on this port (not proxied through app_proxy), so it must be published as a
+    # raw host port. This channel has no authentication of its own - see the
+    # security note in umbrel-app.yml.
+    ports:
+      - "18041:18041"
+    volumes:
+      - ${APP_DATA_DIR}/data/My-Data-Storage:/app/Platform/My-Data-Storage
+      - ${APP_DATA_DIR}/data/My-Log-Files:/app/Platform/My-Log-Files
+      - ${APP_DATA_DIR}/data/My-Workspaces:/app/Platform/My-Workspaces
+      - ${APP_DATA_DIR}/data/My-Network-Nodes-Data:/app/Platform/My-Network-Nodes-Data
+      - ${APP_DATA_DIR}/data/My-Social-Trading-Data:/app/Platform/My-Social-Trading-Data

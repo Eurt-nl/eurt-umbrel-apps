@@ -1,0 +1,50 @@
+manifestVersion: 1
+id: eurt-superalgos
+category: crypto
+name: Superalgos
+version: "9f0fb59"
+tagline: Visually design, backtest, and run your own crypto trading bots
+description: >-
+  🔒 SECURITY NOTE: Superalgos' web UI talks to its backend over a second port (18041) that is published directly on your network and has no authentication of its own. Anyone who can reach your Umbrel on your LAN can issue commands on that channel, including starting or stopping trading sessions. Do not port-forward this app or expose it over Tor/remote access, and only install it on a network you trust.
+
+
+  ⚙️ First-run setup: after opening the app, create a "LAN Network Node" (or edit the default one) in Superalgos and set its host to your Umbrel's address (e.g. umbrel.local) and its WebSockets port to 18041, then connect to it. Until this is done the UI will fail to connect to the backend.
+
+
+  Superalgos is a free, open-source platform for designing, testing, and running your own crypto trading strategies.
+
+
+  - Visually design trading strategies using an integrated charting system, no coding required.
+
+
+  - Mine historical market data and backtest strategies before risking any funds.
+
+
+  - Paper-trade strategies live against real markets without spending real money.
+
+
+  - Deploy trading bots against your own exchange accounts once you're ready, using API keys you control.
+
+
+  This package runs the app in low-memory mode (minMemo) by default and pins a recent commit build, since upstream currently ships nightly builds rather than tagged releases. The project itself warns that it is resource-intensive and works best on a capable server rather than a small single-board computer.
+
+
+  This is actively developed, beta-quality software. Please report issues upstream.
+releaseNotes: ""
+
+developer: Superalgos
+website: https://www.superalgos.org
+dependencies: []
+repo: https://github.com/Superalgos/Superalgos
+support: https://t.me/superalgossysadmins
+
+port: 5452
+icon: https://github.com/Superalgos.png
+gallery: []
+path: ""
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: Eurt
+submission: https://github.com/Eurt-nl/eurt-umbrel-apps
