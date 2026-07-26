@@ -2,7 +2,7 @@ manifestVersion: 1
 id: eurt-surmai
 category: files
 name: Surmai
-version: "0.5.3"
+version: "0.5.3-1"
 tagline: Plan and organize trips together, privately
 description: >-
   Surmai is a personal and family travel organizer built to keep trip planning collaborative and private.
@@ -15,7 +15,8 @@ description: >-
 
 
   This is an early-stage, actively developed project. Please report any issues upstream.
-releaseNotes: ""
+releaseNotes: >-
+  Surmai no longer requires a separate umbrelOS login before its own sign-in page. This fixes access through reverse proxies/tunnels that don't also expose the umbrelOS manager port, and matches how other apps with their own accounts (Immich, Gitea, Jellyfin) are packaged.
 
 developer: Rohit Kumbhar
 website: https://surmai.app/
