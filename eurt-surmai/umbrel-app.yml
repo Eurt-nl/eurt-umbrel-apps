@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: eurt-surmai
+category: files
+name: Surmai
+version: "0.5.3"
+tagline: Plan and organize trips together, privately
+description: >-
+  Surmai is a personal and family travel organizer built to keep trip planning collaborative and private.
+
+
+  Add flights, lodging, activities, and transportation to a shared itinerary, invite fellow travellers, and access everything offline while you're on the road. All data stays on your own Umbrel.
+
+
+  ⚙️ Surmai creates an admin account on first start. Right-click the Surmai app icon on the umbrelOS home screen and select "Show default credentials" to find the sign-in email and password.
+
+
+  This is an early-stage, actively developed project. Please report any issues upstream.
+releaseNotes: ""
+
+developer: Rohit Kumbhar
+website: https://surmai.app/
+dependencies: []
+repo: https://github.com/rohitkumbhar/surmai
+support: https://github.com/rohitkumbhar/surmai/issues
+
+port: 5450
+icon: https://raw.githubusercontent.com/rohitkumbhar/surmai/v0.5.3/public/icons/pwa-512x512.png
+gallery: []
+path: ""
+
+defaultUsername: admin@umbrel.local
+deterministicPassword: true
+
+submitter: Eurt
+submission: https://github.com/Eurt-nl/eurt-umbrel-apps
