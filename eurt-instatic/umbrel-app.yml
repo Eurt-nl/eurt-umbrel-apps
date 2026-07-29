@@ -2,7 +2,7 @@ manifestVersion: 1
 id: eurt-instatic
 category: files
 name: Instatic
-version: "0.0.14"
+version: "0.0.14-1"
 tagline: Open-source visual CMS that outputs clean static pages
 description: >-
   ⚠️ x86_64/amd64 only: Instatic's official image is currently amd64-only, with no arm64 build yet. This will not run on Raspberry Pi or other ARM-based Umbrel hardware — only on Intel/AMD servers and NUCs.
@@ -24,7 +24,8 @@ description: >-
 
 
   This is an early-stage (pre-1.0), actively developed project. Please report any issues upstream.
-releaseNotes: ""
+releaseNotes: >-
+  Removed a hardcoded PUBLIC_ORIGIN that only matched one specific hostname and caused "Forbidden: invalid origin" on setup/login for anyone accessing the app via a different address (LAN IP vs .local name). Instatic now falls back to its own same-origin check, which works for any direct address out of the box.
 
 developer: CoreBunch
 website: https://instatic.com
