@@ -1,0 +1,44 @@
+manifestVersion: 1
+id: eurt-instatic
+category: files
+name: Instatic
+version: "0.0.14"
+tagline: Open-source visual CMS that outputs clean static pages
+description: >-
+  ⚠️ x86_64/amd64 only: Instatic's official image is currently amd64-only, with no arm64 build yet. This will not run on Raspberry Pi or other ARM-based Umbrel hardware — only on Intel/AMD servers and NUCs.
+
+
+  ⚙️ First run: open the app to reach its setup screen and create your site name plus the first owner account. There are no default credentials.
+
+
+  Instatic is a self-hosted, open-source alternative to Webflow, Framer, and WordPress: an agentic visual CMS that outputs clean static pages, with its own users, roles, plugins, and content database built in.
+
+
+  - Visual page editor with a component/canvas system, no separate build step to preview changes.
+
+
+  - Built-in auth with sessions, roles/capabilities, and optional TOTP MFA.
+
+
+  - Runs on SQLite in this package, so there's no separate database container to manage.
+
+
+  This is an early-stage (pre-1.0), actively developed project. Please report any issues upstream.
+releaseNotes: ""
+
+developer: CoreBunch
+website: https://instatic.com
+dependencies: []
+repo: https://github.com/CoreBunch/Instatic
+support: https://github.com/CoreBunch/Instatic/issues
+
+port: 5453
+icon: https://raw.githubusercontent.com/CoreBunch/Instatic/main/public/favicon.svg
+gallery: []
+path: ""
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: Eurt
+submission: https://github.com/Eurt-nl/eurt-umbrel-apps
