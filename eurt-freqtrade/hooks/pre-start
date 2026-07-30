@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+APP_DIR="${APP_DATA_DIR:-$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")}"
+DATA_DIR="${APP_DIR}/data"
+USER_DATA_DIR="${DATA_DIR}/user_data"
+CONFIG_FILE="${USER_DATA_DIR}/config.json"
+
+mkdir -p "${USER_DATA_DIR}/strategies" "${USER_DATA_DIR}/logs" "${USER_DATA_DIR}/data" "${USER_DATA_DIR}/notebooks" "${USER_DATA_DIR}/hyperopts"
+
+# Freqtrade needs a working config.json to start at all, and there is no
+# browser-based first-run setup upstream (only an interactive CLI wizard).
+# Bootstrap a safe default once: dry-run (paper trading) only, FreqUI/REST
+# API enabled with per-install generated credentials, no exchange API keys.
+# Never overwrite it again - the user is expected to edit this file (via the
+# Freqtrade CLI or by hand) to add real exchange keys and tune the strategy.
+if [[ ! -f "${CONFIG_FILE}" ]]; then
+  cat > "${CONFIG_FILE}" <<EOF
+{
+    "\$schema": "https://schema.freqtrade.io/schema.json",
+    "max_open_trades": 3,
+    "stake_currency": "USDT",
+    "stake_amount": "unlimited",
+    "tradable_balance_ratio": 0.99,
+    "fiat_display_currency": "USD",
+    "timeframe": "5m",
+    "dry_run": true,
+    "dry_run_wallet": 1000,
+    "cancel_open_orders_on_exit": false,
+    "trading_mode": "spot",
+    "margin_mode": "",
+    "unfilledtimeout": {
+        "entry": 10,
+        "exit": 10,
+        "exit_timeout_count": 0,
+        "unit": "minutes"
+    },
+    "entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
+    },
+    "exit_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+    "exchange": {
+        "name": "binance",
+        "key": "",
+        "secret": "",
+        "ccxt_config": {},
+        "ccxt_async_config": {},
+        "pair_whitelist": [],
+        "pair_blacklist": [
+            "BNB/.*"
+        ]
+    },
+    "pairlists": [
+        {
+            "method": "VolumePairList",
+            "number_assets": 20,
+            "sort_key": "quoteVolume",
+            "min_value": 0,
+            "refresh_period": 1800
+        }
+    ],
+    "telegram": {
+        "enabled": false,
+        "token": "",
+        "chat_id": ""
+    },
+    "api_server": {
+        "enabled": true,
+        "listen_ip_address": "0.0.0.0",
+        "listen_port": 8080,
+        "verbosity": "error",
+        "enable_openapi": false,
+        "jwt_secret_key": "${APP_FREQTRADE_JWT_SECRET_KEY}",
+        "ws_token": "${APP_FREQTRADE_WS_TOKEN}",
+        "CORS_origins": [],
+        "username": "umbrel",
+        "password": "${APP_PASSWORD}"
+    },
+    "bot_name": "freqtrade",
+    "initial_state": "running",
+    "force_entry_enable": false,
+    "internals": {
+        "process_throttle_secs": 5
+    }
+}
+EOF
+fi

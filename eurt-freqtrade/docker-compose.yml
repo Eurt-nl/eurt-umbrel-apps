@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+
+  # Umbrel login stays enabled in front of this app (the framework default),
+  # on top of Freqtrade's own generated FreqUI/API credentials - upstream
+  # itself recommends against exposing the API/UI directly, so this is
+  # deliberate defense-in-depth for trading software.
+  app_proxy:
+    environment:
+      APP_HOST: eurt-freqtrade_server_1
+      APP_PORT: 8080
+
+  server:
+    image: freqtradeorg/freqtrade:stable@sha256:87aa5c6d65359b34e9d99a0bb260a38c0efe0315253811e6f48c2afe8f278a6a
+    restart: on-failure
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtrade.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite
+      --config /freqtrade/user_data/config.json
+      --strategy SampleStrategy
+    volumes:
+      - ${APP_DATA_DIR}/data/user_data:/freqtrade/user_data

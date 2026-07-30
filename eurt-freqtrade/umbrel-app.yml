@@ -1,0 +1,44 @@
+manifestVersion: 1
+id: eurt-freqtrade
+category: crypto
+name: Freqtrade
+version: "2026.6"
+tagline: Free, open-source crypto trading bot for 15+ exchanges
+description: >-
+  🔒 Two layers of login here: Umbrel's own login stays enabled in front of the app, and FreqUI/the REST API also has its own generated username and password (shown via "Show default credentials" on the app icon). Upstream itself recommends against exposing Freqtrade's API directly, so both layers are kept on purpose.
+
+
+  ⚙️ First run: this package starts Freqtrade in dry-run (paper trading) mode with a sample strategy and no exchange API keys, since Freqtrade has no browser-based setup wizard of its own (only an interactive CLI one). To go live, edit the config through FreqUI or the config file and add your own exchange API keys.
+
+
+  Freqtrade is a free, open-source crypto trading bot that automates trading strategies across Binance, Hyperliquid, and 15+ other exchanges, with a web dashboard (FreqUI), backtesting, and paper trading built in.
+
+
+  - Runs strategies written in Python, including the included beginner-friendly SampleStrategy.
+
+
+  - Backtest against historical data and paper-trade before risking funds.
+
+
+  - Connect your own exchange API keys when you're ready to trade live; this package never adds any for you.
+
+
+  This is real trading software: once you add exchange API keys and disable dry-run, enabled strategies can place real orders. Review any strategy and its risk settings first.
+releaseNotes: ""
+
+developer: Freqtrade
+website: https://www.freqtrade.io
+dependencies: []
+repo: https://github.com/freqtrade/freqtrade
+support: https://github.com/freqtrade/freqtrade/issues
+
+port: 5455
+icon: https://github.com/freqtrade.png
+gallery: []
+path: ""
+
+defaultUsername: umbrel
+deterministicPassword: true
+
+submitter: Eurt
+submission: https://github.com/Eurt-nl/eurt-umbrel-apps
