@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+
+  # Umbrel login stays enabled in front of this app (the framework default) -
+  # OctoBot's own web password is off by default and toggled from inside its
+  # UI, so Umbrel's login is the primary access control here.
+  app_proxy:
+    environment:
+      APP_HOST: eurt-octobot_server_1
+      APP_PORT: 5001
+
+  server:
+    image: drakkarsoftware/octobot:2.1.1@sha256:415d93a9d676817bbe52fcd2a8d47fba146f04392e8a24651e4a432abdbf4628
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/logs:/octobot/logs
+      - ${APP_DATA_DIR}/data/backtesting:/octobot/backtesting
+      - ${APP_DATA_DIR}/data/tentacles:/octobot/tentacles
+      - ${APP_DATA_DIR}/data/user:/octobot/user

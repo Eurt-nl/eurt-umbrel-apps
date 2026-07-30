@@ -1,0 +1,44 @@
+manifestVersion: 1
+id: eurt-octobot
+category: crypto
+name: OctoBot
+version: "2.1.1"
+tagline: Automate crypto trading strategies across 15+ exchanges
+description: >-
+  🔒 Security note: OctoBot's own web interface has no password by default (this is upstream's default, not a bug). This package keeps Umbrel's own login in front of the app as the primary access control. For extra protection, you can additionally enable OctoBot's built-in password under Accounts → Web in its own interface.
+
+
+  OctoBot is a free, open-source crypto trading bot that automates AI, Grid, DCA, and TradingView-signal strategies across Binance, Hyperliquid, and 15+ other exchanges.
+
+
+  - Configure and run trading strategies ("Tentacles") through a web dashboard, no coding required for most setups.
+
+
+  - Backtest strategies against historical data before running them live.
+
+
+  - Paper-trade to validate a strategy without risking funds.
+
+
+  - Connect your own exchange API keys when you're ready to trade live; OctoBot only uses credentials you provide yourself.
+
+
+  This is real trading software: strategies you enable can place real orders on exchanges where you've added API keys. Review any strategy and its risk settings before enabling live trading.
+releaseNotes: ""
+
+developer: Drakkar-Software
+website: https://www.octobot.cloud
+dependencies: []
+repo: https://github.com/Drakkar-Software/OctoBot
+support: https://github.com/Drakkar-Software/OctoBot/issues
+
+port: 5454
+icon: https://raw.githubusercontent.com/Drakkar-Software/OctoBot/master/docs/static/img/logo-light-512.png
+gallery: []
+path: ""
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: Eurt
+submission: https://github.com/Eurt-nl/eurt-umbrel-apps
